@@ -10,6 +10,7 @@ bot = Bot(token='123')
 # Диспетчер
 dp = Dispatcher()
 
+
 # Хэндлер на команду /start
 @dp.message(Command("start"))
 async def cmd_start(message: types.Message):
@@ -20,7 +21,6 @@ async def cmd_start(message: types.Message):
 async def main():
     await dp.stop_polling(bot)
 
+
 if __name__ == '__main__':
     asyncio.run((main()))
-
-
