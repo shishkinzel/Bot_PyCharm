@@ -3,6 +3,8 @@ import logging
 from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters.command import Command
 from config_reader import config
+from keyboard_def import keyboard_reply, keyboard_inline_main
+
 
 # Включаем логирование, чтобы не пропустить важные сообщения
 logging.basicConfig(level=logging.INFO)
@@ -15,7 +17,8 @@ dp = Dispatcher()
 # Хэндлер на команду /start
 @dp.message(Command("start"))
 async def cmd_start(message: types.Message):
-    await message.answer(f"<b>Hello, <i>{message.from_user.first_name}</i></b>")
+    await message.answer(f"<b>Hello, <i>{message.from_user.first_name}</i></b>",
+                         reply_markup=keyboard_reply())
 
 
 # Старт бота
