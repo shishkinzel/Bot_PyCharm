@@ -32,6 +32,8 @@ async def main():
 
 
 if __name__ == '__main__':
-    on_startup()
-    asyncio.run((main()))
-
+    try:
+        on_startup()
+        asyncio.run((main()))
+    except KeyboardInterrupt:
+        print('Exit')
